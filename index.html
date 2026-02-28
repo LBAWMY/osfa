@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
   <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
   <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
+  <meta name="keywords"
+    content="Medical Robotics, Robotic-assisted Surgery, Human-in-the-loop Control, Robotic Hysterectomy">
   <!-- TODO: List all authors -->
   <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <!-- TODO: Replace with your institution or lab name -->
@@ -58,13 +60,13 @@
   <meta name="citation_publication_date" content="2024">
   <meta name="citation_conference_title" content="CONFERENCE_NAME">
   <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
+
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,22 +76,25 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
+  <title>One Surgeon Four Arms Robotic System for Solo-Hysterectomy</title>
+
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
+  <link rel="icon" type="image/x-icon" href="static/images/cuhklogo.webp">
+  <link rel="apple-touch-icon" href="static/images/cuhklogo.webp">
+
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
+
   <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+
   <!-- Fallback for browsers that don't support preload -->
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -97,10 +102,10 @@
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
+
   <!-- Fonts - Optimized loading -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -108,7 +113,7 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
+
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
@@ -162,7 +167,7 @@
     ]
   }
   </script>
-  
+
   <!-- Website/Organization Structured Data -->
   <script type="application/ld+json">
   {
@@ -178,6 +183,7 @@
   }
   </script>
 </head>
+
 <body>
 
 
@@ -186,96 +192,69 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
+
+
 
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <!-- TODO: Replace with your paper title -->
+              <h1 class="title is-1 publication-title">AI-Empowered Cooperative One-Surgeon-Four-Arm Robotic System for
+                Solo-Hysterectomy</h1>
+              <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  <a href="#" target="_blank">Bin Li</a><sup>1,†</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Ziyi Wang</a><sup>1,†</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Bo Lu</a><sup>2,†</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Jiahao Wu</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Yiang Lu</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Fangxun Zhong</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Tak Hong Cheung</a><sup>3</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Qi Dou</a><sup>4,*</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Yunhui Liu</a><sup>1,*</sup>
+                </span>
+              </div>
+
+              <div class="is-size-6 publication-authors">
+                <span class="author-block"><sup>1</sup>Department of Mechanical and Automation Engineering, The Chinese
+                  University of Hong Kong.</span><br>
+                <span class="author-block"><sup>2</sup>School of Mechanical and Electric Engineering, Soochow
+                  University.</span><br>
+                <span class="author-block"><sup>3</sup>Department of Obstetrics and Gynaecology, The Chinese University
+                  of Hong Kong.</span><br>
+                <span class="author-block"><sup>4</sup>Department of Computer Science and Engineering, The Chinese
+                  University of Hong Kong.</span><br>
+                <span class="author-block"><sup>5</sup>T-Stone Robotics Institute, The Chinese University of Hong
+                  Kong.</span><br>
+                <span class="eql-cntrb"><small><sup>†</sup>These authors contributed equally to this work.
+                    <sup>*</sup>Denotes the corresponding authors.</small></span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="static/pdfs/paper.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
                   </span>
-                  </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                  <span class="link-block">
+                    <a href="static/pdfs/Nature_supp.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -287,234 +266,316 @@
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
                     <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+    <!-- Teaser video-->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <!-- TODO: Replace with your teaser video -->
+          <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+            <!-- TODO: Add your video file path here -->
+            <source src="static/videos/banner_video.mp4" type="video/mp4">
+          </video>
+          <!-- TODO: Replace with your video description -->
+          <h2 class="subtitle has-text-centered">
+            Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
+            pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
+          </h2>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    </section>
+    <!-- End teaser video -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <!-- TODO: Replace with your paper abstract -->
+              <p>
+                The increasing robotic and intelligent techniques are enhancing surgeon's operational capabilities for
+                finer surgical intervention, yet AI-enabled surgical robots for solo laparoscopic procedures remain
+                nascent and clinically unvalidated. Here, we present an AI-empowered one-surgeon-four-arm robotic system
+                that enables one surgeon to perform a complete hysterectomy (79mins) independently for the first time.
+                The system integrates two intelligent robots that autonomously interpret surgical scenes to optimize
+                control strategies and adapt intraoperative views on-the-fly. We further introduce multiple levels of
+                cooperative control (LoCC) paradigm that is clinically feasible for surgical autonomy with explicit
+                surgeon-AI-robots role definitions, facilitating automation of a solo hysterectomy in operating
+                theaters.
+                Phantom and cadaver experiments demonstrate our system's superior performance in visual parsing,
+                surgical
+                scene understanding, and cooperative control, which enables efficient and highly autonomous coordination
+                (&gt;55mins full-automation) of four-arm surgical tasks, demonstrating our LoCC framework's scalability
+                for long-horizon task automation in various laparoscopic treatments through a human-robot cooperative
+                paradigm.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
+    </section>
+    <!-- End paper abstract -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
+    <!-- Hero Figure: System Overview -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 1rem;">
+      <div class="container is-max-desktop has-text-centered">
+        <h2 class="title is-3">System Overview</h2>
+        <!-- TODO: Replace with your system overview figure -->
+        <figure class="image" style="margin: 0 auto;">
+          <img src="static/images/fig_system_overview.png"
+            alt="Overview of the AI-empowered one-surgeon-four-arm robotic system for solo hysterectomy" loading="lazy"
+            style="border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);" />
+        </figure>
+        <p class="subtitle is-6 has-text-centered" style="margin-top: 1rem; color: #555;">
+          <b>Fig. 1.</b> Overview of the AI-empowered cooperative one-surgeon-four-arm (OSFA) robotic system.
+          <!-- TODO: Replace with your figure caption -->
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
+    </section>
+    <!-- End hero figure -->
 
 
 
 
 
 
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
 
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+
+
+
+    <!-- Supplementary Videos -->
+    <section class="section" id="supplementary-videos">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Supplementary Videos</h2>
+
+        <!-- Group 1: Perception -->
+        <h3 class="title is-4" style="margin-top: 2rem;">Visual Perception</h3>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S1 · Surgical Instrument Detection &amp; Tracking</p>
+                <p class="subtitle is-7">Robust real-time tracking of multiple instruments in real-world surgical
+                  videos, addressing complex scenarios such as smoke, blur, occlusion, blood, and small objects.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S2 · Surgical Phase Recognition</p>
+                <p class="subtitle is-7">Different laparoscope control strategies, including optimal view selection and
+                  control speed, tailored to the current surgical phase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Phantom Experiments -->
+        <h3 class="title is-4" style="margin-top: 2rem;">Phantom Experiments</h3>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS3.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S3 · LoCC-0: Fully Manual</p>
+                <p class="subtitle is-7">Experiments conducted by one surgeon and two assistants, with manual operation
+                  of the laparoscope and the uterine manipulation rod.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS4.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S4 · LoCC-1: Robot-Assisted</p>
+                <p class="subtitle is-7">The laparoscope-holding robot arm and robotic uterine manipulator replace the
+                  assistant; assistants tele-operate the two robots.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS5.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S5 · LoCC-2: Surgeon-Commanded</p>
+                <p class="subtitle is-7">Two robots are directly controlled by the primary surgeon through external
+                  input commands.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS6.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S6 · LoCC-3: AI-Autonomous</p>
+                <p class="subtitle is-7">Robot movements are determined by AI-based surgical scene perception
+                  algorithms, enabling autonomous control without an assistant or extra equipment.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS7.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S7 · LoCC-4: GUI-Directed</p>
+                <p class="subtitle is-7">The primary surgeon uses a developed GUI to directly control the robots to
+                  manipulate the laparoscope and uterus to the desired position.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: Cadaver Experiments -->
+        <h3 class="title is-4" style="margin-top: 2rem;">Cadaver Experiments</h3>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS8.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S8 · Intelligent Control for Robotic Laparoscope &amp; Uterus Manipulator
+                </p>
+                <p class="subtitle is-7">Individual validation of each control mode under clinical settings.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/MovieS9.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Movie S9 · Solo-Hysterectomy Under Different Surgical Phases</p>
+                <p class="subtitle is-7">Integrated evaluation of the OSFA system in a cadaver experiment, where a
+                  senior surgeon used the system throughout different surgical phases.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
-<!--End paper poster -->
+    </section>
+    <!-- End supplementary videos -->
 
 
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+
+
+
+
+
+
+
+
+
+    <!--End paper poster -->
+
+
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@article{Li2026OSFA,
+  title={AI-Empowered Cooperative One-Surgeon-Four-Arm Robotic System for Solo-Hysterectomy},
+  author={Li, Bin and Wang, Ziyi and Lu, Bo and Wu, Jiahao and Lu, Yiang and Zhong, Fangxun and Cheung, Tak Hong and Dou, Qi and Liu, Yunhui},
+  year={2026},
 }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+      </div>
+    </section>
+    <!--End BibTex citation -->
 
 
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+              <p>
+                This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                  target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                  href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                You are free to borrow the source code of this website, we just ask that you link back to this page in
+                the footer. <br> This website is licensed under a <a rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                  Commons Attribution-ShareAlike 4.0 International License</a>.
+              </p>
 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
 
-  </body>
-  </html>
+</body>
+
+</html>
