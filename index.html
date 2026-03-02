@@ -244,7 +244,7 @@
               <div class="column has-text-centered">
                 <div class="publication-links">
                   <span class="link-block">
-                    <a href="static/pdfs/paper.pdf" target="_blank"
+                    <a href="static/pdfs/Nature_Paper.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -254,7 +254,7 @@
                   </span>
 
                   <span class="link-block">
-                    <a href="static/pdfs/Nature_supp.pdf" target="_blank"
+                    <a href="static/pdfs/Nature_Suppl.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -284,24 +284,8 @@
     </section>
 
 
-    <!-- Teaser video-->
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <!-- TODO: Replace with your teaser video -->
-          <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-            <!-- TODO: Add your video file path here -->
-            <source src="static/videos/banner_video.mp4" type="video/mp4">
-          </video>
-          <!-- TODO: Replace with your video description -->
-          <h2 class="subtitle has-text-centered">
-            Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat
-            pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
-          </h2>
-        </div>
-      </div>
-    </section>
-    <!-- End teaser video -->
+
+
 
     <!-- Paper abstract -->
     <section class="section hero is-light">
@@ -341,10 +325,10 @@
       <div class="container is-max-desktop has-text-centered">
         <h2 class="title is-3">System Overview</h2>
         <!-- TODO: Replace with your system overview figure -->
-        <figure class="image" style="margin: 0 auto;">
+        <figure class="image" style="margin: 0 auto; max-width: 900px;">
           <img src="static/images/fig_system_overview.png"
             alt="Overview of the AI-empowered one-surgeon-four-arm robotic system for solo hysterectomy" loading="lazy"
-            style="border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);" />
+            style="width: 100%; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);" />
         </figure>
         <p class="subtitle is-6 has-text-centered" style="margin-top: 1rem; color: #555;">
           <b>Fig. 1.</b> Overview of the AI-empowered cooperative one-surgeon-four-arm (OSFA) robotic system.
@@ -355,14 +339,7 @@
     <!-- End hero figure -->
 
 
-
-
-
-
-
-
-
-
+    <!-- ===================== EXTENDED DEMONSTRATIONS ===================== -->
     <!-- Supplementary Videos -->
     <section class="section" id="supplementary-videos">
       <div class="container is-max-desktop">
@@ -512,6 +489,512 @@
       </div>
     </section>
     <!-- End supplementary videos -->
+    <section class="section" id="extended-demos" style="background: #fafafa;">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Extended Demonstrations</h2>
+
+        <!-- ── 1. Instrument Tracking & Depth Estimation ── -->
+        <h3 class="title is-4" style="margin-top: 2.5rem;">1 · Instrument Tracking &amp; Depth Estimation</h3>
+        <h4 class="title is-5" style="margin-top: 2rem;">Tool Tracking Dataset</h4>
+        <div class="columns is-vcentered">
+          <div class="column">
+            <figure class="image">
+              <img src="static/images/fig_dataset_labeled.jpg" alt="Tool tracking labeled dataset" loading="lazy"
+                style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
+              <b>Fig. A.</b> Labeled tool tracking dataset with instance annotations.
+            </p>
+          </div>
+          <div class="column">
+            <figure class="image">
+              <img src="static/images/fig_dataset_topleft.jpg" alt="Tool tracking top-left converted dataset"
+                loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
+              <b>Fig. B.</b> Dataset converted to top-left coordinate representation for network training.
+            </p>
+          </div>
+        </div>
+
+        <p class="mb-4 has-text-justified">
+          Real-time tracking of surgical instruments at 60 fps with simultaneous depth estimation,
+          enabling robust 3-D awareness in live surgical scenes.
+        </p>
+        <div class="columns">
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_tracking_smooth.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Smooth Real-Time Tracking</p>
+                <p class="subtitle is-7">Multi-instrument detection and tracking at 60 fps under challenging surgical
+                  conditions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_depth_estimation.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Real-Time Depth Estimation (60 fps)</p>
+                <p class="subtitle is-7">Dense depth maps inferred in real time, providing the robot with accurate
+                  instrument–tissue distance cues.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="title is-5" style="margin-top: 2rem;">Solving Tracking Ambiguity</h4>
+        <p class="mb-4 has-text-justified">
+          Two clinical scenarios demonstrating how our method resolves identity ambiguity during
+          instrument occlusion and re-appearance, compared against a baseline without ambiguity resolution.
+        </p>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_ambiguity_case1_with.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Case 1 — <span style="color:#16a34a;">With</span> Ambiguity Resolution</p>
+                <p class="subtitle is-7">Identity maintained correctly after occlusion.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_ambiguity_case1_without.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Case 1 — <span style="color:#dc2626;">Without</span> Ambiguity Resolution</p>
+                <p class="subtitle is-7">Identity switch occurs after re-appearance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_ambiguity_case2_with.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Case 2 — <span style="color:#16a34a;">With</span> Ambiguity Resolution</p>
+                <p class="subtitle is-7">Robust tracking despite cross-over of instrument paths.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_ambiguity_case2_without.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Case 2 — <span style="color:#dc2626;">Without</span> Ambiguity Resolution</p>
+                <p class="subtitle is-7">Tracking failure under instrument path crossing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="title is-5" style="margin-top: 2rem;">Phantom &amp; In-Vivo Validation Cases</h4>
+        <p class="mb-4 has-text-justified">
+          Each case demonstrates the top-left corner tracking mechanism. For every video, we show
+          the <b>initial top-left corner label</b> (before processing) alongside <b>our tracked
+            top-left corner result</b>, highlighting the improvement in localization accuracy.
+        </p>
+
+        <!-- Phantom cases -->
+        <h5 class="title is-6" style="margin-top:1.5rem; color:#444;">Phantom Cases</h5>
+
+        <!-- helper macro repeated for each case -->
+        <!-- Case: label=PhantomN, video=res_phantom_caseN.mp4,
+             img_init=fig_phantom_caseN_init.jpg, img_track=fig_phantom_caseN_tracked.jpg -->
+
+        <!-- Phantom Case 1 -->
+        <div class="columns is-vcentered"
+          style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 1</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_phantom_case1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case1_init.jpg" alt="Phantom case 1 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case1_tracked.jpg" alt="Phantom case 1 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phantom Case 2 -->
+        <div class="columns is-vcentered"
+          style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 2</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_phantom_case2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case2_init.jpg" alt="Phantom case 2 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case2_tracked.jpg" alt="Phantom case 2 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phantom Case 3 -->
+        <div class="columns is-vcentered"
+          style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 3</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_phantom_case3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case3_init.jpg" alt="Phantom case 3 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case3_tracked.jpg" alt="Phantom case 3 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phantom Case 4 -->
+        <div class="columns is-vcentered" style="margin-bottom:2rem; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 4</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_phantom_case4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case4_init.jpg" alt="Phantom case 4 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_phantom_case4_tracked.jpg" alt="Phantom case 4 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Vivo cases -->
+        <h5 class="title is-6" style="margin-top:1.5rem; color:#444;">In-Vivo Cases</h5>
+
+        <!-- In-Vivo Case 1 -->
+        <div class="columns is-vcentered"
+          style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 1</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_invivo_case1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case1_init.jpg" alt="In-vivo case 1 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case1_tracked.jpg" alt="In-vivo case 1 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Vivo Case 2 -->
+        <div class="columns is-vcentered"
+          style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 2</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_invivo_case2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case2_init.jpg" alt="In-vivo case 2 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case2_tracked.jpg" alt="In-vivo case 2 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Vivo Case 3 -->
+        <div class="columns is-vcentered" style="margin-bottom:2rem;">
+          <div class="column is-half">
+            <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 3</p>
+            <video controls muted loop width="100%" preload="metadata"
+              style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+              <source src="static/videos/res_invivo_case3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-mobile">
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case3_init.jpg" alt="In-vivo case 3 initial top-left label"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#888;">Initial label</p>
+              </div>
+              <div class="column">
+                <figure class="image">
+                  <img src="static/images/fig_invivo_case3_tracked.jpg" alt="In-vivo case 3 tracked top-left result"
+                    loading="lazy" style="border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);" />
+                </figure>
+                <p class="has-text-centered is-size-7" style="margin-top:0.3rem; color:#16a34a;"><b>Tracked result</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- ── 2. GUI Interface ── -->
+      <h3 class="title is-4" style="margin-top: 3rem;">2 · GUI Interface</h3>
+      <p class="mb-4 has-text-justified">
+        The surgeon-facing GUI integrates real-time surgical scene understanding, instrument
+        tracking overlays, laparoscope control feedback, and LoCC mode selection in a single
+        unified interface.
+      </p>
+      <figure class="image" style="margin: 0 auto;">
+        <img src="static/images/fig_gui_interface.jpg" alt="GUI interface showing all integrated information"
+          loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+      </figure>
+      <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
+        <b>Fig. E.</b> Surgical GUI displaying real-time instrument tracking, phase recognition,
+        depth estimation, and cooperative control status.
+      </p>
+
+      <!-- ── 3. Automated Laparoscope Control ── -->
+      <h3 class="title is-4" style="margin-top: 3rem;">3 · Automated Laparoscope Control</h3>
+      <p class="mb-4 has-text-justified">
+        The system autonomously adjusts laparoscope position and field-of-view scale in real time
+        based on surgical scene understanding — eliminating the need for an assistant to hold or
+        reposition the camera during the procedure.
+      </p>
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <div class="card">
+            <div class="card-image">
+              <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <source src="static/videos/res_laparoscope_auto.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-content">
+              <p class="title is-6">Automated Laparoscope Control with Dynamic Scale</p>
+              <p class="subtitle is-7">
+                AI-driven laparoscope repositioning and zoom adaptation in response to changing
+                surgical phase and instrument positions, demonstrated in a representative case.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 4. Voice Control ── -->
+      <h3 class="title is-4" style="margin-top: 3rem;">4 · Voice-Commanded Robot Motion</h3>
+      <p class="mb-4 has-text-justified">
+        The primary surgeon can issue verbal commands to adjust robot positions, freeing both
+        hands for the operative instruments and reducing cognitive load during critical moments.
+      </p>
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <div class="card">
+            <div class="card-image">
+              <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <source src="static/videos/res_voice_control.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="card-content">
+              <p class="title is-6">Voice-to-Robot Control Demo</p>
+              <p class="subtitle is-7">
+                Surgeon issues spoken commands that are interpreted and executed by the robotic
+                laparoscope and uterine manipulator in real time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 5. User Study ── -->
+      <h3 class="title is-4" style="margin-top: 3rem;">5 · User Study</h3>
+      <p class="mb-4 has-text-justified">
+        A structured user study was conducted to evaluate surgeon experience and performance
+        with the OSFA system's laparoscope and uterine manipulator control interfaces across
+        different LoCC modes.
+      </p>
+      <div class="columns">
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/fig_userstudy_laparoscope.jpg" alt="User study results for laparoscope control"
+              loading="lazy" style="border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12); width:100%;" />
+          </figure>
+          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+            <b>Fig. F.</b> User study results for robotic laparoscope control.
+          </p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/fig_userstudy_uterus.jpg" alt="User study results for uterus manipulator control"
+              loading="lazy" style="border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12); width:100%;" />
+          </figure>
+          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+            <b>Fig. G.</b> User study results for robotic uterine manipulator control.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── 6. Cadaver Integration (+ Control Mode Distribution) ── -->
+      <h3 class="title is-4" style="margin-top: 3rem;">6 · Cadaver Integration</h3>
+      <p class="mb-4 has-text-justified">
+        Full system integration validated in a clinical cadaver setting, demonstrating the
+        seamless cooperation of all four robotic arms under real operating theater conditions.
+      </p>
+      <figure class="image" style="margin: 0 auto;">
+        <img src="static/images/fig_cadaver_integration.jpg" alt="Cadaver experiment full system integration"
+          loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+      </figure>
+      <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
+        <b>Fig. H.</b> Integrated OSFA system deployed in cadaver experiment, validating
+        full four-arm cooperative hysterectomy under clinical conditions.
+      </p>
+
+      <!-- Control Mode Distribution (inside Cadaver Integration) -->
+      <h4 class="title is-5" style="margin-top: 2rem;">Control Mode Distribution</h4>
+      <p class="mb-4 has-text-justified">
+        Breakdown of time spent in each control mode during the full cadaver hysterectomy,
+        separately for the robotic laparoscope and the uterine manipulator, demonstrating the
+        high degree of automation achieved by the OSFA system.
+      </p>
+      <div class="columns">
+        <div class="column">
+          <figure class="image" style="max-width:480px; margin:0 auto;">
+            <img src="static/images/fig_pie_laparoscope.jpg" alt="Control mode rate pie chart for robotic laparoscope"
+              loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
+          </figure>
+          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+            <b>Fig. I.</b> Distribution of control modes for the robotic laparoscope during
+            solo hysterectomy (cadaver experiment).
+          </p>
+        </div>
+        <div class="column">
+          <figure class="image" style="max-width:480px; margin:0 auto;">
+            <img src="static/images/fig_pie_uterus.jpg" alt="Control mode rate pie chart for robotic uterus manipulator"
+              loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
+          </figure>
+          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+            <b>Fig. J.</b> Distribution of control modes for the robotic uterine manipulator
+            during solo hysterectomy (cadaver experiment).
+          </p>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
 
 
 
