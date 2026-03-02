@@ -499,7 +499,7 @@
         <div class="columns is-vcentered">
           <div class="column">
             <figure class="image">
-              <img src="static/images/fig_dataset_labeled.jpg" alt="Tool tracking labeled dataset" loading="lazy"
+              <img src="static/images/fig_dataset_labeled.png" alt="Tool tracking labeled dataset" loading="lazy"
                 style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
             </figure>
             <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
@@ -508,11 +508,11 @@
           </div>
           <div class="column">
             <figure class="image">
-              <img src="static/images/fig_dataset_topleft.jpg" alt="Tool tracking top-left converted dataset"
+              <img src="static/images/fig_dataset_topleft.png" alt="Tool tracking top-left converted dataset"
                 loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
             </figure>
             <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
-              <b>Fig. B.</b> Dataset converted to top-left coordinate representation for network training.
+              <b>Fig. B.</b> Dataset converted to top-left coordinate representation.
             </p>
           </div>
         </div>
@@ -561,7 +561,7 @@
           <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
                   <source src="static/videos/res_ambiguity_case1_with.mp4" type="video/mp4">
                 </video>
               </div>
@@ -574,7 +574,7 @@
           <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
                   <source src="static/videos/res_ambiguity_case1_without.mp4" type="video/mp4">
                 </video>
               </div>
@@ -587,7 +587,7 @@
           <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
                   <source src="static/videos/res_ambiguity_case2_with.mp4" type="video/mp4">
                 </video>
               </div>
@@ -600,7 +600,7 @@
           <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
                   <source src="static/videos/res_ambiguity_case2_without.mp4" type="video/mp4">
                 </video>
               </div>
@@ -844,145 +844,150 @@
           </div>
         </div>
 
-      <!-- ── 2. GUI Interface ── -->
-      <h3 class="title is-4" style="margin-top: 3rem;">2 · GUI Interface</h3>
-      <p class="mb-4 has-text-justified">
-        The surgeon-facing GUI integrates real-time surgical scene understanding, instrument
-        tracking overlays, laparoscope control feedback, and LoCC mode selection in a single
-        unified interface.
-      </p>
-      <figure class="image" style="margin: 0 auto;">
-        <img src="static/images/fig_gui_interface.jpg" alt="GUI interface showing all integrated information"
-          loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
-      </figure>
-      <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
-        <b>Fig. E.</b> Surgical GUI displaying real-time instrument tracking, phase recognition,
-        depth estimation, and cooperative control status.
-      </p>
+        <!-- ── 2. GUI Interface ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">2 · GUI Interface</h3>
+        <p class="mb-4 has-text-justified">
+          The surgeon-facing GUI integrates real-time surgical scene understanding, instrument
+          tracking overlays, laparoscope control feedback, and LoCC mode selection in a single
+          unified interface.
+        </p>
+        <figure class="image" style="margin: 0 auto;">
+          <img src="static/images/fig_gui_interface.png" alt="GUI interface showing all integrated information"
+            loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+        </figure>
+        <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
+          <b>Fig. E.</b> Surgical GUI displaying real-time instrument tracking, phase recognition,
+          depth estimation, and cooperative control status.
+        </p>
 
-      <!-- ── 3. Automated Laparoscope Control ── -->
-      <h3 class="title is-4" style="margin-top: 3rem;">3 · Automated Laparoscope Control</h3>
-      <p class="mb-4 has-text-justified">
-        The system autonomously adjusts laparoscope position and field-of-view scale in real time
-        based on surgical scene understanding — eliminating the need for an assistant to hold or
-        reposition the camera during the procedure.
-      </p>
-      <div class="columns is-centered">
-        <div class="column is-three-quarters">
-          <div class="card">
-            <div class="card-image">
-              <video controls muted loop width="100%" preload="metadata" style="display:block;">
-                <source src="static/videos/res_laparoscope_auto.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-content">
-              <p class="title is-6">Automated Laparoscope Control with Dynamic Scale</p>
-              <p class="subtitle is-7">
-                AI-driven laparoscope repositioning and zoom adaptation in response to changing
-                surgical phase and instrument positions, demonstrated in a representative case.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── 4. Voice Control ── -->
-      <h3 class="title is-4" style="margin-top: 3rem;">4 · Voice-Commanded Robot Motion</h3>
-      <p class="mb-4 has-text-justified">
-        The primary surgeon can issue verbal commands to adjust robot positions, freeing both
-        hands for the operative instruments and reducing cognitive load during critical moments.
-      </p>
-      <div class="columns is-centered">
-        <div class="column is-three-quarters">
-          <div class="card">
-            <div class="card-image">
-              <video controls muted loop width="100%" preload="metadata" style="display:block;">
-                <source src="static/videos/res_voice_control.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="card-content">
-              <p class="title is-6">Voice-to-Robot Control Demo</p>
-              <p class="subtitle is-7">
-                Surgeon issues spoken commands that are interpreted and executed by the robotic
-                laparoscope and uterine manipulator in real time.
-              </p>
+        <!-- ── 3. Automated Laparoscope Control ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">3 · Automated Laparoscope Control</h3>
+        <p class="mb-4 has-text-justified">
+          The system autonomously adjusts laparoscope position and field-of-view scale in real time
+          based on surgical scene understanding — eliminating the need for an assistant to hold or
+          reposition the camera during the procedure.
+        </p>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/laparoscope_control_dynamic_scale.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Automated Laparoscope Control with Dynamic Scale</p>
+                <p class="subtitle is-7">
+                  AI-driven laparoscope repositioning and zoom adaptation in response to changing
+                  surgical phase and instrument positions, demonstrated in a representative case.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── 5. User Study ── -->
-      <h3 class="title is-4" style="margin-top: 3rem;">5 · User Study</h3>
-      <p class="mb-4 has-text-justified">
-        A structured user study was conducted to evaluate surgeon experience and performance
-        with the OSFA system's laparoscope and uterine manipulator control interfaces across
-        different LoCC modes.
-      </p>
-      <div class="columns">
-        <div class="column">
-          <figure class="image">
-            <img src="static/images/fig_userstudy_laparoscope.jpg" alt="User study results for laparoscope control"
-              loading="lazy" style="border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12); width:100%;" />
-          </figure>
-          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
-            <b>Fig. F.</b> User study results for robotic laparoscope control.
-          </p>
+        <!-- ── 4. Voice Control ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">4 · Voice-Commanded Robot Motion</h3>
+        <p class="mb-4 has-text-justified">
+          The primary surgeon can issue verbal commands to adjust robot positions, freeing both
+          hands for the operative instruments and reducing cognitive load during critical moments.
+        </p>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="card">
+              <div class="card-image">
+                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_voice_control.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Voice-to-Robot Control Demo</p>
+                <p class="subtitle is-7">
+                  Surgeon issues spoken commands that are interpreted and executed by the robotic
+                  laparoscope and uterine manipulator in real time.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="column">
-          <figure class="image">
-            <img src="static/images/fig_userstudy_uterus.jpg" alt="User study results for uterus manipulator control"
-              loading="lazy" style="border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12); width:100%;" />
-          </figure>
-          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
-            <b>Fig. G.</b> User study results for robotic uterine manipulator control.
-          </p>
-        </div>
-      </div>
 
-      <!-- ── 6. Cadaver Integration (+ Control Mode Distribution) ── -->
-      <h3 class="title is-4" style="margin-top: 3rem;">6 · Cadaver Integration</h3>
-      <p class="mb-4 has-text-justified">
-        Full system integration validated in a clinical cadaver setting, demonstrating the
-        seamless cooperation of all four robotic arms under real operating theater conditions.
-      </p>
-      <figure class="image" style="margin: 0 auto;">
-        <img src="static/images/fig_cadaver_integration.jpg" alt="Cadaver experiment full system integration"
-          loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
-      </figure>
-      <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
-        <b>Fig. H.</b> Integrated OSFA system deployed in cadaver experiment, validating
-        full four-arm cooperative hysterectomy under clinical conditions.
-      </p>
+        <!-- ── 5. User Study ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">5 · User Study</h3>
+        <p class="mb-4 has-text-justified">
+          A structured user study was conducted to evaluate surgeon experience and performance
+          with the OSFA system's laparoscope and uterine manipulator control interfaces across
+          different LoCC modes.
+        </p>
+        <div class="columns">
+          <div class="column">
+            <figure class="image"
+              style="height:420px; display:flex; align-items:center; justify-content:center; background:#f8f8f8; border-radius:8px;">
+              <img src="static/images/fig_userstudy_laparoscope.png" alt="User study results for laparoscope control"
+                loading="lazy"
+                style="max-height:420px; width:auto; max-width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+              <b>Fig. F.</b> User study results for robotic laparoscope control.
+            </p>
+          </div>
+          <div class="column">
+            <figure class="image"
+              style="height:420px; display:flex; align-items:center; justify-content:center; background:#f8f8f8; border-radius:8px;">
+              <img src="static/images/fig_userstudy_uterus.png" alt="User study results for uterus manipulator control"
+                loading="lazy"
+                style="max-height:420px; width:auto; max-width:100%; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.12);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+              <b>Fig. G.</b> User study results for robotic uterine manipulator control.
+            </p>
+          </div>
+        </div>
 
-      <!-- Control Mode Distribution (inside Cadaver Integration) -->
-      <h4 class="title is-5" style="margin-top: 2rem;">Control Mode Distribution</h4>
-      <p class="mb-4 has-text-justified">
-        Breakdown of time spent in each control mode during the full cadaver hysterectomy,
-        separately for the robotic laparoscope and the uterine manipulator, demonstrating the
-        high degree of automation achieved by the OSFA system.
-      </p>
-      <div class="columns">
-        <div class="column">
-          <figure class="image" style="max-width:480px; margin:0 auto;">
-            <img src="static/images/fig_pie_laparoscope.jpg" alt="Control mode rate pie chart for robotic laparoscope"
-              loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
-          </figure>
-          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
-            <b>Fig. I.</b> Distribution of control modes for the robotic laparoscope during
-            solo hysterectomy (cadaver experiment).
-          </p>
+        <!-- ── 6. Cadaver Integration (+ Control Mode Distribution) ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">6 · Cadaver Integration</h3>
+        <p class="mb-4 has-text-justified">
+          Full system integration validated in a clinical cadaver setting, demonstrating the
+          seamless cooperation of all four robotic arms under real operating theater conditions.
+        </p>
+        <figure class="image" style="margin: 0 auto;">
+          <img src="static/images/fig_cadaver_integration.png" alt="Cadaver experiment full system integration"
+            loading="lazy" style="border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+        </figure>
+        <p class="has-text-centered is-size-7" style="margin-top:0.75rem; color:#555;">
+          <b>Fig. H.</b> Integrated OSFA system deployed in cadaver experiment, validating
+          full four-arm cooperative hysterectomy under clinical conditions.
+        </p>
+
+        <!-- Control Mode Distribution (inside Cadaver Integration) -->
+        <h4 class="title is-5" style="margin-top: 2rem;">Control Mode Distribution</h4>
+        <p class="mb-4 has-text-justified">
+          Breakdown of time spent in each control mode during the full cadaver hysterectomy,
+          separately for the robotic laparoscope and the uterine manipulator, demonstrating the
+          high degree of automation achieved by the OSFA system.
+        </p>
+        <div class="columns">
+          <div class="column">
+            <figure class="image" style="max-width:480px; margin:0 auto;">
+              <img src="static/images/fig_pie_laparoscope.png" alt="Control mode rate pie chart for robotic laparoscope"
+                loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+              <b>Fig. I.</b> Distribution of control modes for the robotic laparoscope during
+              solo hysterectomy (cadaver experiment).
+            </p>
+          </div>
+          <div class="column">
+            <figure class="image" style="max-width:480px; margin:0 auto;">
+              <img src="static/images/fig_pie_uterus.png"
+                alt="Control mode rate pie chart for robotic uterus manipulator" loading="lazy"
+                style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
+              <b>Fig. J.</b> Distribution of control modes for the robotic uterine manipulator
+              during solo hysterectomy (cadaver experiment).
+            </p>
+          </div>
         </div>
-        <div class="column">
-          <figure class="image" style="max-width:480px; margin:0 auto;">
-            <img src="static/images/fig_pie_uterus.jpg" alt="Control mode rate pie chart for robotic uterus manipulator"
-              loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
-          </figure>
-          <p class="has-text-centered is-size-7" style="margin-top:0.6rem; color:#555;">
-            <b>Fig. J.</b> Distribution of control modes for the robotic uterine manipulator
-            during solo hysterectomy (cadaver experiment).
-          </p>
-        </div>
-      </div>
 
       </div>
     </section>
