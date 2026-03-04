@@ -324,16 +324,80 @@
     <section class="section" style="padding-top: 2rem; padding-bottom: 1rem;">
       <div class="container is-max-desktop has-text-centered">
         <h2 class="title is-3">System Overview</h2>
-        <!-- TODO: Replace with your system overview figure -->
-        <figure class="image" style="margin: 0 auto; max-width: 900px;">
-          <img src="static/images/fig_system_overview.png"
-            alt="Overview of the AI-empowered one-surgeon-four-arm robotic system for solo hysterectomy" loading="lazy"
-            style="width: 100%; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);" />
-        </figure>
-        <p class="subtitle is-6 has-text-centered" style="margin-top: 1rem; color: #555;">
-          <b>Fig. 1.</b> Overview of the AI-empowered cooperative one-surgeon-four-arm (OSFA) robotic system.
-          <!-- TODO: Replace with your figure caption -->
-        </p>
+
+        <!-- Image Gallery / Carousel -->
+        <div class="osfa-gallery" id="systemOverviewGallery" style="position:relative; max-width:900px; margin:0 auto;">
+
+          <!-- Viewport: clips overflowing slides -->
+          <div style="overflow:hidden; border-radius:8px;">
+            <!-- Track: slides laid out side-by-side -->
+            <div id="systemOverviewGallery-track"
+              style="display:flex; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1); will-change:transform;">
+
+              <div class="osfa-slide" style="min-width:100%; box-sizing:border-box;">
+                <figure class="image">
+                  <img src="static/images/fig1_v2.jpg"
+                    alt="Overview of the AI-empowered one-surgeon-four-arm robotic system for solo hysterectomy"
+                    loading="lazy" style="width:100%; border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+                </figure>
+                <p class="subtitle is-6 has-text-centered" style="margin-top:1rem; color:#555;">
+                  <b>Fig. 1.</b> Overview of the AI-empowered cooperative one-surgeon-four-arm (OSFA) robotic system.
+                </p>
+              </div>
+
+              <div class="osfa-slide" style="min-width:100%; box-sizing:border-box;">
+                <figure class="image">
+                  <img src="static/images/fig2_v2.jpg" alt="Second system overview figure — placeholder" loading="lazy"
+                    style="width:100%; border-radius:8px; box-shadow:0 4px 24px rgba(0,0,0,0.12);" />
+                </figure>
+                <p class="subtitle is-6 has-text-centered" style="margin-top:1rem; color:#555;">
+                  <b>Fig. 2.</b> Schematic overview and hardware design of OSFA system for total
+                  laparoscopic hysterectomy.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Prev / Next arrows -->
+          <button onclick="osfa_gallery_prev('systemOverviewGallery')" style="position:absolute; top:42%; left:-2.5rem; transform:translateY(-50%);
+                   background:rgba(255,255,255,0.85); border:none; border-radius:50%;
+                   width:2.2rem; height:2.2rem; font-size:1.1rem; cursor:pointer;
+                   box-shadow:0 2px 8px rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center;"
+            aria-label="Previous figure">&#8249;</button>
+          <button onclick="osfa_gallery_next('systemOverviewGallery')" style="position:absolute; top:42%; right:-2.5rem; transform:translateY(-50%);
+                   background:rgba(255,255,255,0.85); border:none; border-radius:50%;
+                   width:2.2rem; height:2.2rem; font-size:1.1rem; cursor:pointer;
+                   box-shadow:0 2px 8px rgba(0,0,0,0.15); display:flex; align-items:center; justify-content:center;"
+            aria-label="Next figure">&#8250;</button>
+
+          <!-- Dot indicators -->
+          <div id="systemOverviewGallery-dots"
+            style="margin-top:0.75rem; display:flex; justify-content:center; gap:0.4rem;">
+            <span onclick="osfa_gallery_goto('systemOverviewGallery',0)"
+              style="width:8px;height:8px;border-radius:50%;background:#333;cursor:pointer;display:inline-block;opacity:1;transition:opacity 0.3s;"></span>
+            <span onclick="osfa_gallery_goto('systemOverviewGallery',1)"
+              style="width:8px;height:8px;border-radius:50%;background:#333;cursor:pointer;display:inline-block;opacity:0.3;transition:opacity 0.3s;"></span>
+          </div>
+        </div>
+
+        <script>
+          (function () {
+            var _idx = { systemOverviewGallery: 0 };
+            function _count(id) { return document.querySelectorAll('#' + id + ' .osfa-slide').length; }
+            function _dots(id) { return document.querySelectorAll('#' + id + '-dots span'); }
+            function _show(id, idx) {
+              var n = _count(id);
+              idx = ((idx % n) + n) % n;
+              _idx[id] = idx;
+              document.getElementById(id + '-track').style.transform = 'translateX(-' + (idx * 100) + '%)';
+              _dots(id).forEach(function (d, i) { d.style.opacity = i === idx ? '1' : '0.3'; });
+            }
+            window.osfa_gallery_prev = function (id) { _show(id, _idx[id] - 1); };
+            window.osfa_gallery_next = function (id) { _show(id, (_idx[id] || 0) + 1); };
+            window.osfa_gallery_goto = function (id, i) { _show(id, i); };
+          })();
+        </script>
       </div>
     </section>
     <!-- End hero figure -->
@@ -495,7 +559,44 @@
 
         <!-- ── 1. Instrument Tracking & Depth Estimation ── -->
         <h3 class="title is-4" style="margin-top: 2.5rem;">1 · Instrument Tracking &amp; Depth Estimation</h3>
-        <h4 class="title is-5" style="margin-top: 2rem;">Tool Tracking Dataset</h4>
+        <h4 class="title is-5" style="margin-top: 2rem;">Tool Detection Dataset</h4>
+
+        <p class="mb-3 has-text-justified">
+          Each instrument is represented by its <b>top-left corner</b> (the bounding-rectangle corner closest to the
+          image origin) and orientation angle <b>θ</b> (the acute angle between the instrument axis and the
+          horizontal).
+        </p>
+        <!-- Illustrative figures: top-left definition & theta definition -->
+        <div class="columns is-vcentered" style="margin-bottom:1.5rem;">
+          <div class="column">
+            <figure class="image">
+              <img src="static/images/definition_topleft.png"
+                alt="Illustration of top-left corner definition for surgical instruments" loading="lazy"
+                style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
+              <!-- TODO: Replace image src -->
+              Illustration of the <b>top-left corner</b> definition on a laparoscopic instrument.
+            </p>
+          </div>
+          <div class="column">
+            <figure class="image">
+              <img src="static/images/definition_box.png"
+                alt="Illustration of theta orientation angle for surgical instruments" loading="lazy"
+                style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
+            </figure>
+            <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
+              <!-- TODO: Replace image src -->
+              Illustration of the orientation angle <b>θ</b> relative to the horizontal image axis.
+            </p>
+          </div>
+        </div>
+
+        <p class="mb-3 has-text-justified">
+          We convert the instance-annotated dataset (<b>Fig. A</b>) into a top-left corner
+          representation by deriving each instrument's top-left corner and orientation angle <b>θ</b>,
+          yielding the converted dataset shown in <b>Fig. B</b>.
+        </p>
         <div class="columns is-vcentered">
           <div class="column">
             <figure class="image">
@@ -503,7 +604,7 @@
                 style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10);" />
             </figure>
             <p class="has-text-centered is-size-7" style="margin-top:0.5rem; color:#555;">
-              <b>Fig. A.</b> Labeled tool tracking dataset with instance annotations.
+              <b>Fig. A.</b> Labeled tool detection dataset with instance annotations.
             </p>
           </div>
           <div class="column">
@@ -517,36 +618,61 @@
           </div>
         </div>
 
+        <h4 class="title is-5" style="margin-top: 2rem;">Detailed In-Vivo Tracking Cases</h4>
         <p class="mb-4 has-text-justified">
-          Real-time tracking of surgical instruments at 60 fps with simultaneous depth estimation,
-          enabling robust 3-D awareness in live surgical scenes.
+          Representative clips from four in-vivo surgical sequences demonstrating robust real-time
+          instrument tracking under clinical conditions (with 2x speedup playback).
         </p>
-        <div class="columns">
-          <div class="column">
+        <div class="columns is-multiline">
+          <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
-                  <source src="static/videos/res_tracking_smooth.mp4" type="video/mp4">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/invivo_tracking_v1-clips01-x2.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="card-content">
-                <p class="title is-6">Smooth Real-Time Tracking</p>
-                <p class="subtitle is-7">Multi-instrument detection and tracking at 60 fps under challenging surgical
-                  conditions.</p>
+                <p class="title is-6">In-Vivo Case 1</p>
+                <p class="subtitle is-7">Real-time instrument tracking in a live surgical scene.</p>
               </div>
             </div>
           </div>
-          <div class="column">
+          <div class="column is-half">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
-                  <source src="static/videos/res_depth_estimation.mp4" type="video/mp4">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/invivo_tracking_v1-clips02-x2.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="card-content">
-                <p class="title is-6">Real-Time Depth Estimation (60 fps)</p>
-                <p class="subtitle is-7">Dense depth maps inferred in real time, providing the robot with accurate
-                  instrument–tissue distance cues.</p>
+                <p class="title is-6">In-Vivo Case 2</p>
+                <p class="subtitle is-7">Continued tracking across a different phase.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/invivo_tracking_v2-clips01-x2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">In-Vivo Case 3</p>
+                <p class="subtitle is-7">Instrument tracking under challenging in-vivo conditions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-image">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/invivo_tracking_v2-clips02-x2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">In-Vivo Case 4</p>
+                <p class="subtitle is-7">Robust tracking maintained through complex instrument interactions.</p>
               </div>
             </div>
           </div>
@@ -614,9 +740,10 @@
 
         <h4 class="title is-5" style="margin-top: 2rem;">Phantom &amp; In-Vivo Validation Cases</h4>
         <p class="mb-4 has-text-justified">
-          Each case demonstrates the top-left corner tracking mechanism. For every video, we show
-          the <b>initial top-left corner label</b> (before processing) alongside <b>our tracked
-            top-left corner result</b>, highlighting the improvement in localization accuracy.
+          Each case illustrates the top-left corner tracking mechanism by juxtaposing the
+          <b>initial top-left corner label</b> (raw detector output) with <b>our tracked result</b>.
+          The initial predictions exhibit temporal discontinuities due to per-frame detection noise,
+          which our tracking mechanism effectively suppresses to yield temporally consistent localization.
         </p>
 
         <!-- Phantom cases -->
@@ -631,7 +758,7 @@
           style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 1</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_phantom_case1.mp4" type="video/mp4">
             </video>
@@ -662,7 +789,7 @@
           style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 2</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_phantom_case2.mp4" type="video/mp4">
             </video>
@@ -693,7 +820,7 @@
           style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">Phantom Case 3</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_phantom_case3.mp4" type="video/mp4">
             </video>
@@ -729,7 +856,7 @@
           style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 1</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_invivo_case1.mp4" type="video/mp4">
             </video>
@@ -760,7 +887,7 @@
           style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:1.5rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 2</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_invivo_case2.mp4" type="video/mp4">
             </video>
@@ -790,7 +917,7 @@
         <div class="columns is-vcentered" style="margin-bottom:2rem;">
           <div class="column is-half">
             <p class="is-size-7 has-text-weight-bold mb-1">In-Vivo Case 3</p>
-            <video controls muted loop width="100%" preload="metadata"
+            <video autoplay controls muted loop width="100%" preload="metadata"
               style="display:block; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.10);">
               <source src="static/videos/res_invivo_case3.mp4" type="video/mp4">
             </video>
@@ -820,7 +947,7 @@
         <h3 class="title is-4" style="margin-top: 3rem;">2 · GUI Interface</h3>
         <p class="mb-4 has-text-justified">
           The surgeon-facing GUI integrates real-time surgical scene understanding, instrument
-          tracking overlays, laparoscope control feedback, and LoCC mode selection in a single
+          tracking overlays, laparoscope/uterus control feedback, and LoCC mode selection in a single
           unified interface.
         </p>
         <figure class="image" style="margin: 0 auto;">
@@ -833,17 +960,31 @@
         </p>
 
         <!-- ── 3. Automated Laparoscope Control ── -->
-        <h3 class="title is-4" style="margin-top: 3rem;">3 · Automated Laparoscope Control</h3>
+        <h3 class="title is-4" style="margin-top: 3rem;">3 · 3D Automatic Laparoscope Control</h3>
         <p class="mb-4 has-text-justified">
           The system autonomously adjusts laparoscope position and field-of-view scale in real time
           based on surgical scene understanding — eliminating the need for an assistant to hold or
           reposition the camera during the procedure.
         </p>
-        <div class="columns is-centered">
-          <div class="column is-three-quarters">
+        <div class="columns">
+          <div class="column">
             <div class="card">
               <div class="card-image">
-                <video controls muted loop width="100%" preload="metadata" style="display:block;">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
+                  <source src="static/videos/res_depth_estimation.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="card-content">
+                <p class="title is-6">Real-Time Depth Estimation (60 fps)</p>
+                <p class="subtitle is-7">Dense depth maps inferred in real time, providing the robot with accurate
+                  instrument distance cues.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <video autoplay controls muted loop width="100%" preload="metadata" style="display:block;">
                   <source src="static/videos/laparoscope_control_dynamic_scale.mp4" type="video/mp4">
                 </video>
               </div>
@@ -851,14 +992,14 @@
                 <p class="title is-6">Automated Laparoscope Control with Dynamic Scale</p>
                 <p class="subtitle is-7">
                   AI-driven laparoscope repositioning and zoom adaptation in response to changing
-                  surgical phase and instrument positions, demonstrated in a representative case.
+                  surgical phase and instrument positions.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── 4. Voice Control ── -->
+        <!-- ── 4. Voice Control ──
         <h3 class="title is-4" style="margin-top: 3rem;">4 · Voice-Commanded Robot Motion</h3>
         <p class="mb-4 has-text-justified">
           The primary surgeon can issue verbal commands to adjust robot positions, freeing both
@@ -881,10 +1022,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <!-- ── 5. User Study ── -->
-        <h3 class="title is-4" style="margin-top: 3rem;">5 · User Study</h3>
+        <!-- ── 4. User Study ──
+        <h3 class="title is-4" style="margin-top: 3rem;">4 · Extra User Study</h3>
         <p class="mb-4 has-text-justified">
           A structured user study was conducted to evaluate surgeon experience and performance
           with the OSFA system's laparoscope and uterine manipulator control interfaces across
@@ -913,10 +1054,10 @@
               <b>Fig. G.</b> User study results for robotic uterine manipulator control.
             </p>
           </div>
-        </div>
+        </div> -->
 
-        <!-- ── 6. Cadaver Integration (+ Control Mode Distribution) ── -->
-        <h3 class="title is-4" style="margin-top: 3rem;">6 · Cadaver Integration</h3>
+        <!-- ── 4. Cadaver Integration (+ Control Mode Distribution) ── -->
+        <h3 class="title is-4" style="margin-top: 3rem;">4 · Cadaver Integration</h3>
         <p class="mb-4 has-text-justified">
           Full system integration validated in a clinical cadaver setting, demonstrating the
           seamless cooperation of all four robotic arms under real operating theater conditions.
@@ -939,7 +1080,7 @@
         </p>
         <div class="columns">
           <div class="column">
-            <figure class="image" style="max-width:480px; margin:0 auto;">
+            <figure class="image" style="max-width:300px; margin:0 auto;">
               <img src="static/images/fig_pie_laparoscope.png" alt="Control mode rate pie chart for robotic laparoscope"
                 loading="lazy" style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
             </figure>
@@ -949,7 +1090,7 @@
             </p>
           </div>
           <div class="column">
-            <figure class="image" style="max-width:480px; margin:0 auto;">
+            <figure class="image" style="max-width:300px; margin:0 auto;">
               <img src="static/images/fig_pie_uterus.png"
                 alt="Control mode rate pie chart for robotic uterus manipulator" loading="lazy"
                 style="border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:100%;" />
